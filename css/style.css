@@ -1,0 +1,63 @@
+.username {
+  position: center;
+  font-family: 'Oldenburg', cursive;
+  font-size: 40px;
+  font-weight: 400;
+ background-color: aqua;
+  text-align: center;
+}
+
+#user-name {
+  border-radius: 5px;
+  width: 300px;
+  position: relative;
+  margin: 0;
+  height: 30px;
+}
+
+#users {
+  font-family: 'Oldenburg', cursive;
+  font-size: 50px;
+  font-weight: 300;
+  text-align: left;
+}
+
+#allRepos {
+  font-family: 'Oldenburg', cursive;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 400px;
+  margin-bottom: 100px;
+  list-style-type: none;
+}
+
+div[id="avatar"] {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  position: relative;
+  border-color: gray;
+  margin-left: 10px;
+}
+
+header {
+  position: center;
+  font-family: 'Oldenburg', cursive;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  font-family: 'Oldenburg', cursive;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: center; 
+}
+
+body {
+  background-image: beige;
+  background-position: center;
+  background-repeat: no-repeat;
+}
