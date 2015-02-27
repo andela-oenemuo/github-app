@@ -1,4 +1,4 @@
-$(function () {
+$(function(){
   window.FindUser = {
 //var searchInput = '';
     username: $('#user-name'),
@@ -14,29 +14,34 @@ $(function () {
         info += '<div id="following">Following: '+data.following+'</div>';
         info += '<div id="public repos">Public Repositories: '+data.public_repos+'</div>';
 
-        
-        $.getJSON('https://api.github.com/users/'+searchInput+'/repos', function(data){
-          console.log (data);
-          $.each(data,function(key, value){
-            console.log(value.full_name);
-            $('<li>'+value.full_name+'</li>').appendTo('#allRepos');
-              $('ul').appendTo('#list');
-          });
+      $.getJSON('https://api.github.com/users/'+searchInput+'/repos', function(repos) {
+        $.each(repos, function(key, value) {
+          $('<li id="links"><a href='+value.html_url+' target="_blank">'+value.full_name+'</a></li>').appendTo("#allRepos");
+            $("ul").appendTo("#list");
+        }); 
+      });
+
+      $("#numOrg").show();
+        $.getJSON('https://api.github.com/users/'+searchInput+'/orgs', function(orgs) {
+          $("#numOrg").html('<div id="numOrg">Organizations<br />'+orgs.length+'</div>');
         });
 
-        // $.getJSON('https')
 
-        $('#users').html(info);
-        info += '<div>'
+      $('#users').html(info);
+        info += '<div>';
       }).fail(function(error){
         console.log('Error:', error);
-        $('.error').html('<p>Error Occured... Try again Later!</p>');
+      $('.error').html('<p>Error Occured... Try again Later!</p>');
+      
       });
 
 
     }
-} 
-  FindUser.searchButton.click(FindUser.searchValue);
+}; 
+      $("#search-button").click(function () {
+        $('#allRepos').empty();
+      });
+      FindUser.searchButton.click(FindUser.searchValue);
 
 
 });
